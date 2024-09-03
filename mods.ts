@@ -1,4 +1,4 @@
-import { serve } from "https://deno.land/x/sift@0.1.6/mod.ts";
+import { serve } from "https://deno.land/x/sift@0.6.0/mod.ts";
 
 const page = (title: string, body: string): Response =>
   new Response(
