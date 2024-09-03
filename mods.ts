@@ -1,6 +1,5 @@
 import { Buffer } from "https://deno.land/std/io/mod.ts";
-import { Application } from "https://deno.land/x/oak/mod.ts";
-import { Context } from "https://deno.land/x/oak@v12.4.0/context.ts";
+import { Application, Context } from "https://deno.land/x/oak/mod.ts";
 import { nostr } from "./deps.ts";
 
 const page = `
@@ -39,7 +38,7 @@ await new Application()
       return;
     } else if (ctx.request.method === "POST") {
       //const username !== Deno.env.get("XXX");
-      const event = (await ctx.request.body().value) as nostr.Event;
+      const event = (await ctx.request.body) as nostr.Event;
       ctx.response.type = "application/json; charset=utf-8";
       ctx.response.body = JSON.stringify(event);
     }
