@@ -38,6 +38,7 @@ await new Application()
       return;
     } else if (ctx.request.method === "POST") {
       //const username !== Deno.env.get("XXX");
+      console.log(ctx.request.body);
       const event = (await ctx.request.body) as nostr.Event;
       ctx.response.type = "application/json; charset=utf-8";
       ctx.response.body = JSON.stringify(event);
