@@ -6,7 +6,7 @@ const page = `
 <!doctype html>
 <link href="//fonts.bunny.net/css?family=sigmar-one:400" rel="stylesheet" />
 <meta charset="utf-8" />
-<title>Cloudflare Gyazo</title>
+<title>Cloudflare ぺろぺろ</title>
 <style>
 body {
   font-size: 40px;
