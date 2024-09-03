@@ -37,11 +37,10 @@ await new Application()
       ctx.response.type = "text/html; charset=utf-8";
       ctx.response.body = page;
       return;
-    }
-    if (ctx.request.method === "POST") {
-      //const username !== Deno.env.get("GYAZO_USERNAME");
-      const event =
-        (await ctx.request.body({ type: "json" }).value) as nostr.Event;
+    } else if (ctx.request.method === "POST") {
+      //const username !== Deno.env.get("XXX");
+      ctx.request.body;
+      const event = (await ctx.request.body().value) as nostr.Event;
       ctx.response.type = "application/json; charset=utf-8";
       ctx.response.body = JSON.stringify(event);
     }
