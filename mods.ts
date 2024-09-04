@@ -76,13 +76,13 @@ await new Application()
     } else if (ctx.request.method === "POST") {
       const mention: nostr.Event =
         (await ctx.request.body.json()) as nostr.Event;
-      const m = mention.content.match(/^(\d)ぺろ$/);
-      if (m && m.length === 2) {
+      const m = mention.content.match(/^(\d)((ぺろ|ペロ)+)$/);
+      if (m && m.length >= 3 && m[1] != "0") {
         ctx.response.type = "application/json; charset=utf-8";
         const ee = createReplyWithTags(
           Deno.env,
           mention,
-          "ぺろ".repeat(Number(m[1])),
+          m[2].repeat(Number(m[1])),
           [],
         );
         ctx.response.body = JSON.stringify(ee);
